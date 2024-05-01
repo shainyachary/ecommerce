@@ -1,0 +1,60 @@
+.header {
+  background-color: #fff;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+.logo_container {
+  width: 150px;
+}
+.logo_container a img {
+  width: 100%;
+  object-fit: cover;
+}
+.menu_items {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+.menu_link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #444;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+.menu_link.active {
+  color: goldenrod;
+  text-decoration: underline;
+}
+.btn_group {
+  display: flex;
+  gap: 2rem;
+}
+.btn_group button {
+  outline: none;
+  border: none;
+  padding: 0.3em 1.5em;
+  background-color: goldenrod;
+  border-radius: 1.2em;
+  color: #fff;
+  font-size: 1.25em;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+.menu_bar_container {
+  display: none;
+}
+.menu_bar {
+  font-size: 2.5em;
+}

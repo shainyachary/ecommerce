@@ -1,0 +1,11 @@
+.carousel_inner img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+@media screen and (max-width: 767px) {
+  .carousel_inner img {
+    width: 100%;
+    height: 80vh;
+  }
+}
