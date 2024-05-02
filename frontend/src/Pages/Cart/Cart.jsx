@@ -22,7 +22,7 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {products?.data.map((p) => {
+            {products?.data?.data?.map((p) => {
               if (cartItems[p.id] > 0) {
                 return (
                   <tr key={p.id}>

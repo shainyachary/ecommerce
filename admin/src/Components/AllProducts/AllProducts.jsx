@@ -29,9 +29,9 @@ const AllProducts = () => {
   };
 
   return (
-    <section className="allproducts">
+    <section className="allproducts mx-auto" style={{ width: "80%" }}>
       <h4>Product List</h4>
-      <table>
+      <table className="table">
         <thead>
           <tr></tr>
         </thead>

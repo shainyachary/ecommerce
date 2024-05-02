@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AddProducts.css";
+import upload from "";
 
 const AddProducts = () => {
   const [image, setImage] = useState(false);
@@ -80,12 +81,13 @@ const AddProducts = () => {
         <div className="input_box">
           <label htmlFor="file_input">
             <img
-              src={image ? URL.createObjectURL(image) : ""}
+              src={image ? URL.createObjectURL(image) : upload}
               width={80}
               alt=""
             />
           </label>
           <input
+            className="visually-hidden"
             name="image"
             value={productDetails.image}
             type="file"

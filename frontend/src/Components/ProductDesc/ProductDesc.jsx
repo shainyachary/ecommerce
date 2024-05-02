@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import "./ProductDesc.css";
-import { ProductContext } from "../ProductContext/ProductContext";
+import { ProductContext } from "../../ProductContext/ProductContext";
 
 const ProductDesc = () => {
   const { products, addToCart } = useContext(ProductContext);
   const { id } = useParams();
-  const productdesc = products.data.find((p) => p.id === Number(id));
+  const productdesc = products.data.data.find((p) => p.id === Number(id));
 
   if (!productdesc) {
     return (

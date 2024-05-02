@@ -20,11 +20,11 @@
   letter-spacing: 1px;
   margin-bottom: 0.3em;
 }
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
-form input {
+.form input {
   padding: 0.5em 0.6em;
   font-size: 1.5em;
   outline: none;
@@ -33,7 +33,7 @@ form input {
   border-radius: 5px;
   margin-bottom: 1.5em;
 }
-form button {
+.form button {
   outline: none;
   border: none;
   background-color: #444;
@@ -45,7 +45,7 @@ form button {
   margin: 0.5em 0 1em;
   border-radius: 5px;
 }
-form .form_condition {
+.form .form_condition {
   font-size: 1.2em;
   color: #333;
 }

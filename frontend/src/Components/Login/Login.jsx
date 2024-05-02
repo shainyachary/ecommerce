@@ -3,28 +3,98 @@ import { useState } from "react";
 
 const Login = () => {
   const [state, setState] = useState("Login");
-  const login = () => {
-    console.log("login");
+
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const changeHandler = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const signup = () => {
-    console.log("signup");
+
+  const signin = async () => {
+    console.log("clicked", formData);
+    let responseData;
+    await fetch("http://localhost:9998/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => (responseData = data));
+    if (responseData.success) {
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      alert(responseData.error);
+    }
+  };
+  const signup = async () => {
+    console.log("signup", formData);
+    let responseData;
+    await fetch("http://localhost:9998/signup/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => (responseData = data));
+    if (responseData.success) {
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      alert(responseData.error);
+    }
   };
 
   return (
     <section className="login_container">
       <div className="login_wrapper">
-        <div className="form_title">Login</div>
-        <form action="" method="post">
+        {state === "Login" ? (
+          <div className="form_title">Login</div>
+        ) : (
+          <div className="form_title">Sign Up</div>
+        )}
+        <div className="form">
           {state === "Sign Up" ? (
-            <input type="name" id="username" placeholder="Email Address" />
+            <input
+              name="username"
+              value={formData.username}
+              type="name"
+              id="username"
+              onChange={changeHandler}
+              placeholder="Email Address"
+            />
           ) : (
             ""
           )}
-          <input type="email" id="email" placeholder="Email Address" />
-          <input type="password" id="password" placeholder="Password" />
+          <input
+            name="email"
+            value={formData.email}
+            type="email"
+            id="email"
+            onChange={changeHandler}
+            placeholder="Email Address"
+          />
+          <input
+            name="password"
+            value={formData.password}
+            type="password"
+            id="password"
+            onChange={changeHandler}
+            placeholder="Password"
+          />
           <button
             className="form_login_btn"
-            onClick={() => (state === "Login" ? login() : signup())}
+            onClick={() => {
+              state === "Login" ? signin() : signup();
+            }}
           >
             Continue
           </button>
@@ -43,7 +113,7 @@ const Login = () => {
               </span>
             </p>
           )}
-        </form>
+        </div>
       </div>
     </section>
   );

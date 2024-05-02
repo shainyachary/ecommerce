@@ -103,6 +103,41 @@ app.get("/allproducts", async (req, res) => {
   });
 });
 
+const fetchUser = async (req, res, next) => {
+  const token = req.headers("auth-token");
+  if (!token) {
+    res.status(401).send({ errors: "Please enter Valid login Credentials" });
+  } else {
+    try {
+      const data = jwt.verify(token, "secret_key");
+      req.user = data.user;
+      next();
+    } catch (error) {
+      res.status(401).send({ errors: "Please enter Valid login Credentials" });
+    }
+  }
+};
+
+app.post("/addtocart", fetchUser, async (req, res) => {
+  let userData = await User.findOne({ _id: req.user.id });
+  userData.cartData[req.body.itemId] += 1;
+  await User.findOneAndUpdate(
+    { _id: req.body.id },
+    { cartData: userData.cartData }
+  );
+  res.send("Added");
+});
+
+app.post("/removefromcart", fetchUser, async (req, res) => {
+  let userData = await User.findOne({ _id: req.user.id });
+  userData.cartData[req.body.itemId] -= 1;
+  await User.findOneAndUpdate(
+    { _id: req.body.id },
+    { cartData: userData.cartData }
+  );
+  res.send("Removed");
+});
+
 const User = mongoose.model("User", {
   name: {
     type: String,
@@ -172,11 +207,11 @@ app.post("/login", async (req, res) => {
     } else {
       res.json({
         success: false,
-        error: "Wrong password",
+        errors: "Wrong password",
       });
     }
   } else {
-    res.json({ success: false, error: "Wrong Email" });
+    res.json({ success: false, errors: "Wrong Email" });
   }
 });
 

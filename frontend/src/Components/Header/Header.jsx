@@ -36,10 +36,22 @@ const Header = () => {
         </li>
       </ul>
       <div className="btn_group">
-        <Link to={"/login"} className="login_btn">
-          <button>Login</button>
-        </Link>
-        {/* <button>Logout</button> */}
+        {localStorage.getItem("auth-token") ? (
+          <Link
+            onClick={() => {
+              localStorage.removeItem("auth-token");
+              window.location.replace("/");
+            }}
+            to={"/logout"}
+            className="login_btn"
+          >
+            <button>Logout</button>
+          </Link>
+        ) : (
+          <Link to={"/login"} className="login_btn">
+            <button>Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );

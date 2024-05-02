@@ -4,8 +4,7 @@ import Home from "../Pages/Home/Home";
 import Cart from "../Pages/Cart/Cart";
 import Shop from "../Pages/Shop/Shop";
 import Login from "../Components/Login/Login";
-import SignUp from "../Components/SignUp/SignUp";
-import ProductDesc from "../ProductDesc/ProductDesc";
+import ProductDesc from "../Components/ProductDesc/ProductDesc";
 
 export const AppRouter = createBrowserRouter([
   {
