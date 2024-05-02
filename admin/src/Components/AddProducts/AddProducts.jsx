@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./AddProducts.css";
-import upload from "";
+import upload from "../../assets/upload.png";
 
 const AddProducts = () => {
   const [image, setImage] = useState(false);
@@ -82,8 +82,8 @@ const AddProducts = () => {
           <label htmlFor="file_input">
             <img
               src={image ? URL.createObjectURL(image) : upload}
-              width={80}
-              alt=""
+              alt="product"
+              className="add_prod_img"
             />
           </label>
           <input

@@ -23,3 +23,24 @@
   background-color: #f0f0f0;
   width: 100%;
 }
+.wrapper button {
+  width: 100%;
+  margin: 1em 0;
+  padding: 0.5em 3em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: goldenrod;
+  font-size: 1.6em;
+}
+.input_box label {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.input_box .add_prod_img {
+  width: 80px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
