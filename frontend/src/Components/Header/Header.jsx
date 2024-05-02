@@ -2,10 +2,12 @@ import "./Header.css";
 import logo from "../../assets/cover.png";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { ProductContext } from "../../ProductContext/ProductContext";
+import { useContext } from "react";
 // import { useState } from "react";
 
 const Header = () => {
-  //   const [active, setActive] = useState("Home");
+  const { getCartItems } = useContext(ProductContext);
   return (
     <div className="header">
       <div className="logo_container">
@@ -28,13 +30,15 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link className="menu_link" to={"/cart"}>
-            Cart
+          <Link className="menu_link position-relative" to={"/cart"}>
+            Cart<span className="cart_count">{getCartItems()}</span>
           </Link>
         </li>
       </ul>
       <div className="btn_group">
-        <button>Login</button>
+        <Link to={"/login"} className="login_btn">
+          <button>Login</button>
+        </Link>
         {/* <button>Logout</button> */}
       </div>
     </div>

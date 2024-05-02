@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+html,
+body {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+section {
+  padding: 7rem 7%;
+}
+@media screen and (max-width: 990px) {
+  html,
+  body {
+    font-size: 55%;
+  }
+}
+@media screen and (max-width: 550px) {
+  html,
+  body {
+    font-size: 50%;
+  }
+  section {
+    padding: 4rem 3%;
+  }
+}

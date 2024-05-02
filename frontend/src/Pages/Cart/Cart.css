@@ -1,0 +1,62 @@
+.cart_container {
+  width: 100%;
+  min-height: 100vh;
+}
+tr th {
+  font-size: 1.45em;
+  letter-spacing: 1px;
+}
+tr td {
+  vertical-align: middle;
+  font-size: 1.35em;
+  color: #555;
+}
+.cartSummary {
+  width: 50%;
+  background-color: #f1f1f1;
+  padding: 3.5em 3em;
+  margin-top: 2em;
+  border-radius: 5px;
+  box-shadow: 0 0.5em 1em rgba(0 0 0/15%);
+}
+.cartSummary h1 {
+  font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 0.5em;
+}
+.summary .summary_price,
+.summary .summary_ship,
+.summary .summary_total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7em 0 0;
+  font-size: 1.7em;
+  color: #444;
+  border-bottom: 1px solid #b5b4b4;
+}
+.summary .summary_price p:nth-child(2),
+.summary .summary_ship p:nth-child(2),
+.summary .summary_total p:nth-child(2) {
+  color: #888;
+}
+.check_btn {
+  border: none;
+  outline: none;
+  margin: 2em 0;
+  padding: 0.5em 3em;
+  width: 100%;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: goldenrod;
+  border-radius: 5px;
+  display: inline-block;
+}
+.trash {
+  font-size: 1.5em;
+}
+@media screen and (max-width: 767px) {
+  .cartSummary {
+    width: 100%;
+  }
+}

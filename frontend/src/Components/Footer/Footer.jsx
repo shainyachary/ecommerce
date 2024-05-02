@@ -1,6 +1,10 @@
 import "./Footer.css";
 import logo from "../../assets/cover.png";
 import { aboutus, advantages, jewellerys, services } from "../../utils";
+import { RiFacebookCircleFill } from "react-icons/ri";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { FaSquareInstagram } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -9,6 +13,12 @@ const Footer = () => {
         <div className="footer_logo">
           <img src={logo} alt="logo" />
           <div className="add">Andheri-(E), Mumbai-59</div>
+          <div className="social_icons">
+            <RiFacebookCircleFill className="icons" />
+            <AiFillTwitterCircle className="icons" />
+            <FaSquareInstagram className="icons" />
+            <FaLinkedinIn className="icons" />
+          </div>
         </div>
         <div>
           {jewellerys.map((item) => {
