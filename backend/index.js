@@ -10,7 +10,10 @@ const cors = require("cors");
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://ecoomerce-1whq.vercel.app"],
+    origin: [
+      "https://ecommerce-client-livid-one.vercel.app/",
+      "https://ecommerce-admin-pied-eight.vercel.app/",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   })
