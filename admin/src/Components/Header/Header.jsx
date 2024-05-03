@@ -26,9 +26,6 @@ const Header = () => {
           </Link>
         </li>
       </ul>
-      <div className="btn_group">
-        <button>Logout</button>
-      </div>
     </div>
   );
 };
