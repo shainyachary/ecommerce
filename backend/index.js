@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const os = require("os");
 
 app.use(express.json());
 app.use(
@@ -24,7 +25,7 @@ mongoose.connect(
 );
 
 const storage = multer.diskStorage({
-  destination: "C:/path/to/your/directory/upload", // Update this path
+  destination: os.tmpdir(),
   filename: (req, file, cb) => {
     cb(
       null,
