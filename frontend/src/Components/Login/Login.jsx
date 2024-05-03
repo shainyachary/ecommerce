@@ -17,16 +17,13 @@ const Login = () => {
   const signin = async () => {
     console.log("clicked", formData);
     let responseData;
-    await fetch(
-      "https://vercel.com/shainy-acharys-projects/ecommerce-server/login/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      }
-    )
+    await fetch("http://localhost:9998/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
       .then((res) => res.json())
       .then((data) => (responseData = data));
     if (responseData.success) {
@@ -39,16 +36,13 @@ const Login = () => {
   const signup = async () => {
     console.log("signup", formData);
     let responseData;
-    await fetch(
-      "https://vercel.com/shainy-acharys-projects/ecommerce-server/signup/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      }
-    )
+    await fetch("http://localhost:9998/signup/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
       .then((res) => res.json())
       .then((data) => (responseData = data));
     if (responseData.success) {

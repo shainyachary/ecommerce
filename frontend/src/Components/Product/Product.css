@@ -1,5 +1,6 @@
 .wrapper {
   border: 1px solid #ccc;
+  height: 350px;
   padding: 0.6em;
   border-radius: 5px;
   overflow: hidden;
@@ -9,6 +10,7 @@
 }
 .img_box img {
   width: 100%;
+  height: 260px;
   object-fit: cover;
   border: 1px solid #edeaea;
   border-radius: 5px;

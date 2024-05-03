@@ -7,9 +7,7 @@ const AllProducts = () => {
   const [listProducts, setListProducts] = useState([]);
 
   const fetchProducts = async () => {
-    await fetch(
-      "https://vercel.com/shainy-acharys-projects/ecommerce-server/allproducts"
-    )
+    await fetch("http://localhost:9998/allproducts")
       .then((res) => res.json())
       .then((data) => setListProducts(data));
   };
@@ -19,17 +17,14 @@ const AllProducts = () => {
   }, []);
 
   const remove_Products = async (id) => {
-    await fetch(
-      "https://vercel.com/shainy-acharys-projects/ecommerce-server/removeproduct",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: id }),
-      }
-    );
+    await fetch("http://localhost:9998/removeproduct", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id }),
+    });
     fetchProducts();
   };
 

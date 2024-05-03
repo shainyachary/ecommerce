@@ -25,7 +25,7 @@ mongoose.connect(
 );
 
 const storage = multer.diskStorage({
-  destination: os.tmpdir(),
+  destination: "./upload/images",
   filename: (req, file, cb) => {
     cb(
       null,
