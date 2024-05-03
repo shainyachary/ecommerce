@@ -25,13 +25,16 @@ const AddProducts = () => {
 
     let formData = new FormData();
     formData.append("product", image);
-    await fetch("http://localhost:9998/upload", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: formData,
-    })
+    await fetch(
+      "https://vercel.com/shainy-acharys-projects/ecommerce-server/upload",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         responsedata = data;
@@ -39,14 +42,17 @@ const AddProducts = () => {
     if (responsedata.success) {
       product.image = responsedata.image_url;
       console.log(product);
-      await fetch("http://localhost:9998/addproduct", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
+      await fetch(
+        "https://vercel.com/shainy-acharys-projects/ecommerce-server/addproduct",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           data.success ? alert("Product Added") : alert("Upload failed");

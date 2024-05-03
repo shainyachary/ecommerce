@@ -16,7 +16,9 @@ const ProductContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getCartDetails());
 
   const getData = () => {
-    fetch("http://localhost:9998/allproducts")
+    fetch(
+      "https://vercel.com/shainy-acharys-projects/ecommerce-server/allproducts"
+    )
       .then((res) => res.json())
       .then((d) => setData(d));
   };
@@ -28,15 +30,18 @@ const ProductContextProvider = ({ children }) => {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:9998/addproduct", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "auth-token": `${localStorage.getItem("auth-token")}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ItemId: itemId }),
-      })
+      fetch(
+        "https://vercel.com/shainy-acharys-projects/ecommerce-server/addproduct",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "auth-token": `${localStorage.getItem("auth-token")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ItemId: itemId }),
+        }
+      )
         .then((res) => res.json())
         .then((d) => console.log(d));
     }
@@ -45,15 +50,18 @@ const ProductContextProvider = ({ children }) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:9998/removeproduct", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "auth-token": `${localStorage.getItem("auth-token")}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ItemId: itemId }),
-      })
+      fetch(
+        "https://vercel.com/shainy-acharys-projects/ecommerce-server/removeproduct",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "auth-token": `${localStorage.getItem("auth-token")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ItemId: itemId }),
+        }
+      )
         .then((res) => res.json())
         .then((d) => console.log(d));
     }
