@@ -8,7 +8,13 @@ const path = require("path");
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://ecoomerce-1whq.vercel.app"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 mongoose.connect(
   "mongodb+srv://shainyachary:admin123@cluster0.xmqwdso.mongodb.net/ecommerce_web?retryWrites=true&w=majority&appName=Cluster0"
